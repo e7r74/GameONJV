@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление компьютерами</title>
+
+</head>
+<body>
+<h1>Управление компьютерами</h1>
+
+<!-- Форма для добавления ПК -->
+<form th:action="@{/admin/addComputer}" method="post">
+    <label for="addRoom">Зал:</label>
+    <input type="text" id="addRoom" name="room">
+    <label for="addNumber">Номер ПК:</label>
+    <input type="number" id="addNumber" name="number">
+    <label for="addStatus">Статус:</label>
+    <select id="addStatus" name="status">
+        <option value="Свободен">Свободен</option>
+        <option value="Занят">Занят</option>
+        <option value="Забронирован">Забронирован</option>
+    </select>
+<!--    <input type="text" id="addStatus" name="status">-->
+    <label for="addBookingTime">Время бронирования:</label>
+    <input type="datetime-local" id="addBookingTime" name="bookingTime">
+    <label for="addBookingTime">Время бронирования:</label>
+    <input type="datetime-local"  name="booking_time_end">
+    <button type="submit">Добавить ПК</button>
+
+</form>
+<!--<form th:action="@{/admin}" method="post">-->
+<!--    <button type="submit">Удалить все компьютеры</button>-->
+<!--</form>-->
+
+<!-- Сообщение об ошибке -->
+<div th:if="${error}" style="color: red;">
+    <p th:text="${error}"></p>
+</div>
+
+</body>
+</html>
+
+
+
+
